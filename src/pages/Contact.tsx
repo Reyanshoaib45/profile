@@ -1,10 +1,16 @@
-
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import { Mail, Phone, MapPin, Send, Instagram, MessageSquare } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Instagram,
+  MessageSquare,
+} from "lucide-react";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -30,38 +36,38 @@ const Contact = () => {
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
-      
+
       // Show toast notification
       toast({
         title: "Message Sent!",
         description: "Thank you for your message. I'll get back to you soon.",
       });
-      
+
       // Show global notification
       if (Notification.permission === "granted") {
         const notification = new Notification("New Message Received", {
           body: `From: ${formData.name} (${formData.email})`,
-          icon: "/favicon.ico"
+          icon: "/favicon.ico",
         });
-        
+
         notification.onclick = () => {
           window.focus();
         };
       } else if (Notification.permission !== "denied") {
-        Notification.requestPermission().then(permission => {
+        Notification.requestPermission().then((permission) => {
           if (permission === "granted") {
             const notification = new Notification("New Message Received", {
               body: `From: ${formData.name} (${formData.email})`,
-              icon: "/favicon.ico"
+              icon: "/favicon.ico",
             });
-            
+
             notification.onclick = () => {
               window.focus();
             };
           }
         });
       }
-      
+
       // Reset form
       setFormData({
         name: "",
@@ -73,14 +79,17 @@ const Contact = () => {
   };
 
   // Handle redirect to Asscote app
-  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
+  const handleContactClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    url: string
+  ) => {
     e.preventDefault();
-    
+
     toast({
       title: "Redirecting",
       description: "Taking you to the Asscote app...",
     });
-    
+
     setTimeout(() => {
       window.location.href = url;
     }, 500);
@@ -101,7 +110,7 @@ const Contact = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-            <a 
+            <a
               href="https://asscote.app/mail"
               onClick={(e) => handleContactClick(e, "https://asscote.app/mail")}
               className="block bg-white p-8 rounded-lg shadow-md text-center animate-fade-in hover:shadow-xl transition-all hover:-translate-y-1"
@@ -110,10 +119,10 @@ const Contact = () => {
                 <Mail className="h-5 w-5" />
               </div>
               <h3 className="font-bold mb-2 font-playfair">Email</h3>
-              <p className="text-gray-600 font-lato">contact@example.com</p>
+              <p className="text-gray-600 font-lato">Reyanshoaib45@gmail.com</p>
             </a>
 
-            <a 
+            <a
               href="https://asscote.app/call"
               onClick={(e) => handleContactClick(e, "https://asscote.app/call")}
               className="block bg-white p-8 rounded-lg shadow-md text-center animate-fade-in delay-100 hover:shadow-xl transition-all hover:-translate-y-1"
@@ -122,31 +131,35 @@ const Contact = () => {
                 <Phone className="h-5 w-5" />
               </div>
               <h3 className="font-bold mb-2 font-playfair">Phone</h3>
-              <p className="text-gray-600 font-lato">+1 (234) 567-890</p>
+              <p className="text-gray-600 font-lato">+92 346 4769301</p>
             </a>
 
-            <a 
+            <a
               href="https://asscote.app/whatsapp"
-              onClick={(e) => handleContactClick(e, "https://asscote.app/whatsapp")}
+              onClick={(e) =>
+                handleContactClick(e, "https://asscote.app/whatsapp")
+              }
               className="block bg-white p-8 rounded-lg shadow-md text-center animate-fade-in delay-200 hover:shadow-xl transition-all hover:-translate-y-1"
             >
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-navy-100 text-navy-600 mb-4">
                 <MessageSquare className="h-5 w-5" />
               </div>
               <h3 className="font-bold mb-2 font-playfair">WhatsApp</h3>
-              <p className="text-gray-600 font-lato">+1 (234) 567-890</p>
+              <p className="text-gray-600 font-lato">+92 346 4769301</p>
             </a>
 
-            <a 
+            <a
               href="https://asscote.app/instagram"
-              onClick={(e) => handleContactClick(e, "https://asscote.app/instagram")}
+              onClick={(e) =>
+                handleContactClick(e, "https://asscote.app/instagram")
+              }
               className="block bg-white p-8 rounded-lg shadow-md text-center animate-fade-in delay-300 hover:shadow-xl transition-all hover:-translate-y-1"
             >
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-navy-100 text-navy-600 mb-4">
                 <Instagram className="h-5 w-5" />
               </div>
               <h3 className="font-bold mb-2 font-playfair">Instagram</h3>
-              <p className="text-gray-600 font-lato">@m_reyan_shoaib</p>
+              <p className="text-gray-600 font-lato">mr_reyan._295</p>
             </a>
           </div>
 
