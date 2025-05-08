@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -37,7 +36,7 @@ const Navbar = () => {
         setActiveSection("");
       }
     };
-    
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [location.pathname]);
@@ -53,7 +52,7 @@ const Navbar = () => {
     } else if (location.pathname.includes("pencraft")) {
       setActiveSection("projects");
     }
-    
+
     // Check for hash in URL for direct navigation
     if (location.hash) {
       setActiveSection(location.hash.replace("#", ""));
@@ -86,7 +85,9 @@ const Navbar = () => {
     } else if (path === "/#skills") {
       return activeSection === "skills" ? "text-accent-500 font-semibold" : "";
     } else if (path === "/#projects") {
-      return activeSection === "projects" ? "text-accent-500 font-semibold" : "";
+      return activeSection === "projects"
+        ? "text-accent-500 font-semibold"
+        : "";
     } else if (path === "/pricing") {
       return activeSection === "pricing" ? "text-accent-500 font-semibold" : "";
     } else if (path === "/contact") {
@@ -103,45 +104,55 @@ const Navbar = () => {
     >
       <div className="container flex justify-between items-center">
         <Link to="/" className="text-2xl font-playfair font-bold text-navy-800">
-          M Reyan<span className="text-accent-500">SHoaib</span>
+          M Reyan<span className="text-accent-500"> Shoaib</span>
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          <Link 
-            to="/" 
-            className={`nav-link font-lato hover:text-accent-500 transition-colors ${isActive("/")}`}
+          <Link
+            to="/"
+            className={`nav-link font-lato hover:text-accent-500 transition-colors ${isActive(
+              "/"
+            )}`}
           >
             Home
           </Link>
-          <a 
-            href="/#skills" 
+          <a
+            href="/#skills"
             onClick={handleSkillsClick}
-            className={`nav-link font-lato hover:text-accent-500 transition-colors ${isActive("/#skills")}`}
+            className={`nav-link font-lato hover:text-accent-500 transition-colors ${isActive(
+              "/#skills"
+            )}`}
           >
             Skills
           </a>
-          <a 
-            href="/#projects" 
+          <a
+            href="/#projects"
             onClick={handleProjectsClick}
-            className={`nav-link font-lato hover:text-accent-500 transition-colors ${isActive("/#projects")}`}
+            className={`nav-link font-lato hover:text-accent-500 transition-colors ${isActive(
+              "/#projects"
+            )}`}
           >
             Projects
           </a>
-          <Link 
-            to="/pricing" 
-            className={`nav-link font-lato hover:text-accent-500 transition-colors ${isActive("/pricing")}`}
+          <Link
+            to="/pricing"
+            className={`nav-link font-lato hover:text-accent-500 transition-colors ${isActive(
+              "/pricing"
+            )}`}
           >
             Pricing
           </Link>
-          <Link 
-            to="/contact" 
-            className={`nav-link font-lato hover:text-accent-500 transition-colors ${isActive("/contact")}`}
+          <Link
+            to="/contact"
+            className={`nav-link font-lato hover:text-accent-500 transition-colors ${isActive(
+              "/contact"
+            )}`}
           >
             Contact
           </Link>
           <a
-            href="https://github.com"
+            href="https://github.com/Reyanshoaib45"
             target="_blank"
             rel="noreferrer"
             className="text-navy-800 hover:text-accent-500 transition-colors"
@@ -174,28 +185,36 @@ const Navbar = () => {
             </Link>
             <a
               href="/#skills"
-              className={`text-lg font-medium font-lato ${isActive("/#skills")}`}
+              className={`text-lg font-medium font-lato ${isActive(
+                "/#skills"
+              )}`}
               onClick={handleSkillsClick}
             >
               Skills
             </a>
             <a
               href="/#projects"
-              className={`text-lg font-medium font-lato ${isActive("/#projects")}`}
+              className={`text-lg font-medium font-lato ${isActive(
+                "/#projects"
+              )}`}
               onClick={handleProjectsClick}
             >
               Projects
             </a>
             <Link
               to="/pricing"
-              className={`text-lg font-medium font-lato ${isActive("/pricing")}`}
+              className={`text-lg font-medium font-lato ${isActive(
+                "/pricing"
+              )}`}
               onClick={() => setIsOpen(false)}
             >
               Pricing
             </Link>
             <Link
               to="/contact"
-              className={`text-lg font-medium font-lato ${isActive("/contact")}`}
+              className={`text-lg font-medium font-lato ${isActive(
+                "/contact"
+              )}`}
               onClick={() => setIsOpen(false)}
             >
               Contact
